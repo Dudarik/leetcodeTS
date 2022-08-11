@@ -1,4 +1,4 @@
-import { sortedArrayToBST, TreeNode } from "./tree.js";
+import { sortedArrayToBST, isValidBST, TreeNode } from "./tree.js";
 
 /**
  * sortedArrayToBST
@@ -9,3 +9,19 @@ import { sortedArrayToBST, TreeNode } from "./tree.js";
 // nums = [1, 3];
 // // Output: [3,1]
 // console.log(sortedArrayToBST(nums));
+
+/**
+ * isValidBST
+ */
+
+// let root = new TreeNode(2, new TreeNode(1), new TreeNode(3)); //[2,1,3]
+//  Output: true
+
+// root = new TreeNode(
+//   5,
+//   new TreeNode(1),
+//   new TreeNode(4, new TreeNode(3), new TreeNode(6))
+// ); //[5,1,4,null,null,3,6]
+// Output: false
+
+// console.log(isValidBST(root));

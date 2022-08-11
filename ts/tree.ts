@@ -41,3 +41,29 @@ export function sortedArrayToBST(nums: number[]): TreeNode | null {
 
   return tHead;
 }
+
+/**98. Validate Binary Search Tree */
+/**https://leetcode.com/problems/validate-binary-search-tree/ */
+
+export function isValidBST(root: TreeNode | null): boolean {
+  const helper = (
+    root: TreeNode | null,
+    low: number,
+    high: number
+  ): boolean => {
+    if (!root) return true;
+
+    if (root.val < high && root.val > low) {
+      return (
+        helper(root.left, low, root.val) && helper(root.right, root.val, high)
+      );
+    } else {
+      return false;
+    }
+  };
+
+  const lowVal = -2147483648;
+  const highVal = 2147483647;
+
+  return helper(root, lowVal, highVal);
+}
