@@ -5,6 +5,8 @@ import {
   TreeNode,
 } from "../ts/tree";
 
+/**sortedArrayToBST */
+
 test("sortedArrayToBST must equal outputTree", () => {
   const nums: number[] = [-10, -3, 0, 5, 9];
   const outputTree = new TreeNode(
@@ -23,6 +25,8 @@ test("sortedArrayToBST must equal outputTree", () => {
   expect(sortedArrayToBST(nums)).toStrictEqual(outputTree);
 });
 
+/**isValidBST */
+
 test("isValidBST Must return true", () => {
   const root = new TreeNode(2, new TreeNode(1), new TreeNode(3)); //[2,1,3]
   //  Output: true
@@ -39,6 +43,8 @@ test("isValidBST Must return false", () => {
   // Output: false
   expect(isValidBST(root)).toBe(false);
 });
+
+/**lowestCommonAncestor */
 
 test("lowestCommonAncestor must return TreeNode with value = 6", () => {
   const root = new TreeNode(
