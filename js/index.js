@@ -1,4 +1,9 @@
-import { sortedArrayToBST, isValidBST, TreeNode } from "./tree.js";
+import {
+  sortedArrayToBST,
+  isValidBST,
+  TreeNode,
+  lowestCommonAncestor,
+} from "./tree.js";
 
 /**
  * sortedArrayToBST
@@ -25,3 +30,24 @@ import { sortedArrayToBST, isValidBST, TreeNode } from "./tree.js";
 // Output: false
 
 // console.log(isValidBST(root));
+
+/**
+ * lowestCommonAncestor
+ */
+
+// let root = new TreeNode(
+//   6,
+//   new TreeNode(
+//     2,
+//     new TreeNode(0),
+//     new TreeNode(4, new TreeNode(3), new TreeNode(5))
+//   ),
+//   new TreeNode(8, new TreeNode(7), new TreeNode(9))
+// );
+
+// // console.log(root);
+// //[6,2,8,0,4,7,9,null,null,3,5],
+// let p = 2,
+//   q = 8;
+// //  Output: 6
+// console.log(lowestCommonAncestor(root));

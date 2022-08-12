@@ -67,3 +67,28 @@ export function isValidBST(root: TreeNode | null): boolean {
 
   return helper(root, lowVal, highVal);
 }
+
+/**235. Lowest Common Ancestor of a Binary Search Tree */
+/**https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/ */
+
+export function lowestCommonAncestor(
+  root: TreeNode | null,
+  p: TreeNode | null,
+  q: TreeNode | null
+): TreeNode | null {
+  if (!root || !p || !q) return root;
+
+  if (root.left && root.right) {
+    if (root.left === p && root.right === q) return root;
+  }
+
+  if (root === p || root === q) return root;
+
+  if (root.val > p.val && root.val > q.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  } else if (root.val < p.val && root.val < q.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  }
+
+  return root;
+}
