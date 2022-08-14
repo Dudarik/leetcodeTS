@@ -4,7 +4,7 @@
   "description": "Learn TS",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose --coverage"
   },
   "author": "Alex Rezn",
   "license": "ISC",

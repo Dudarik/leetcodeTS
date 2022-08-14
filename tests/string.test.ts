@@ -1,22 +1,24 @@
 import { findSubstring } from "../ts/string";
 
-test("Must return Array = [0,9]", () => {
-  const s = "barfoothefoobarman",
-    words = ["foo", "bar"];
+describe("findSubstring tests", () => {
+  test("Must return Array = [0,9]", () => {
+    const s: string = "barfoothefoobarman",
+      words: string[] = ["foo", "bar"];
 
-  expect(findSubstring(s, words)).toStrictEqual([0, 9]);
-});
+    expect(findSubstring(s, words)).toStrictEqual([0, 9]);
+  });
 
-test("Must return Array = []", () => {
-  const s = "wordgoodgoodgoodbestword",
-    words = ["word", "good", "best", "word"];
+  test("Must return Array = []", () => {
+    const s: string = "wordgoodgoodgoodbestword",
+      words: string[] = ["word", "good", "best", "word"];
 
-  expect(findSubstring(s, words)).toStrictEqual([]);
-});
+    expect(findSubstring(s, words)).toStrictEqual([]);
+  });
 
-test("Must return Array = [6,9,12]", () => {
-  const s = "barfoofoobarthefoobarman",
-    words = ["bar", "foo", "the"];
+  test("Must return Array = [6,9,12]", () => {
+    const s: string = "barfoofoobarthefoobarman",
+      words: string[] = ["bar", "foo", "the"];
 
-  expect(findSubstring(s, words)).toStrictEqual([6, 9, 12]);
+    expect(findSubstring(s, words)).toStrictEqual([6, 9, 12]);
+  });
 });
