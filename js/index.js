@@ -5,6 +5,8 @@ import {
   lowestCommonAncestor,
 } from "./tree.js";
 
+import { findSubstring } from "./string.js";
+
 /**
  * sortedArrayToBST
  */
@@ -51,3 +53,14 @@ import {
 //   q = 8;
 // //  Output: 6
 // console.log(lowestCommonAncestor(root));
+
+// let s = "barfoothefoobarman",
+//   words = ["foo", "bar"];
+// // Output: [0,9]
+
+// (s = "wordgoodgoodgoodbestword"), (words = ["word", "good", "best", "word"]);
+// // Output: []
+
+// (s = "barfoofoobarthefoobarman"), (words = ["bar", "foo", "the"]);
+// // Output: [6,9,12]
+// console.log(findSubstring(s, words));
