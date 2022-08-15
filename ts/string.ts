@@ -33,3 +33,44 @@ export function findSubstring(s: string, words: string[]): number[] {
   }
   return result;
 }
+
+/**13. Roman to Integer */
+/**https://leetcode.com/problems/roman-to-integer/ */
+
+export function romanToInt(s: string): number | null {
+  if (s.length < 1 || s.length > 15) return null;
+  const sArr: string[] = s.split("");
+
+  interface ISybToDec {
+    [char: string]: number;
+  }
+
+  const symbolToDec: ISybToDec = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+
+  let sum: number = 0,
+    i: number = 0;
+
+  while (i < sArr.length) {
+    const curr: string = sArr[i],
+      next: string = sArr[i + 1];
+
+    if (next && symbolToDec[curr] < symbolToDec[next]) {
+      sum += symbolToDec[next] - symbolToDec[curr];
+      i += 2;
+      continue;
+    }
+
+    sum += symbolToDec[curr];
+    i++;
+  }
+
+  return sum;
+}
