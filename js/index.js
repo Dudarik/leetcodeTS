@@ -5,7 +5,7 @@ import {
   lowestCommonAncestor,
 } from "./tree.js";
 
-import { findSubstring } from "./string.js";
+import { firstUniqChar } from "./string.js";
 
 /**
  * sortedArrayToBST
@@ -64,3 +64,5 @@ import { findSubstring } from "./string.js";
 // (s = "barfoofoobarthefoobarman"), (words = ["bar", "foo", "the"]);
 // // Output: [6,9,12]
 // console.log(findSubstring(s, words));
+
+// console.log(firstUniqChar("aabb"));

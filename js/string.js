@@ -56,3 +56,16 @@ export function romanToInt(s) {
     }
     return sum;
 }
+/**387. First Unique Character in a String */
+/**https://leetcode.com/problems/first-unique-character-in-a-string/ */
+export function firstUniqChar(s) {
+    const resObj = {};
+    for (let i = 0; i < s.length; i++) {
+        resObj[s[i]] ? resObj[s[i]]++ : (resObj[s[i]] = 1);
+    }
+    for (const key in resObj) {
+        if (resObj[key] < 2)
+            return s.indexOf(key);
+    }
+    return -1;
+}

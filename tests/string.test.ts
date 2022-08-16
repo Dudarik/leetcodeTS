@@ -1,4 +1,4 @@
-import { findSubstring, romanToInt } from "../ts/string";
+import { findSubstring, firstUniqChar, romanToInt } from "../ts/string";
 
 describe("findSubstring tests", () => {
   test("Must return Array = [0,9]", () => {
@@ -25,19 +25,34 @@ describe("findSubstring tests", () => {
 
 describe("romanToInt tests", () => {
   test('Input: s = "" must return null', () => {
-    const s = "";
+    const s: string = "";
     expect(romanToInt(s)).toBe(null);
   });
   test('Input: s = "III" must return 3', () => {
-    const s = "III";
+    const s: string = "III";
     expect(romanToInt(s)).toBe(3);
   });
   test('Input: s = "LVIII" must return 58', () => {
-    const s = "LVIII";
+    const s: string = "LVIII";
     expect(romanToInt(s)).toBe(58);
   });
   test('Input: s = "MCMXCIV" must return 1994', () => {
-    const s = "MCMXCIV";
+    const s: string = "MCMXCIV";
     expect(romanToInt(s)).toBe(1994);
+  });
+});
+
+describe("firstUniqChar tests", () => {
+  test('s = "leetcode" must return 0', () => {
+    const s: string = "leetcode";
+    expect(firstUniqChar(s)).toBe(0);
+  });
+  test('s = "loveleetcode" must return 2', () => {
+    const s: string = "loveleetcode";
+    expect(firstUniqChar(s)).toBe(2);
+  });
+  test('s = "aabb" must return -1', () => {
+    const s: string = "aabb";
+    expect(firstUniqChar(s)).toBe(-1);
   });
 });
