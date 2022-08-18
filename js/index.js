@@ -7,6 +7,8 @@ import {
 
 import { firstUniqChar } from "./string.js";
 
+import { minSetSize } from "./arrays.js";
+
 /**
  * sortedArrayToBST
  */
@@ -66,3 +68,6 @@ import { firstUniqChar } from "./string.js";
 // console.log(findSubstring(s, words));
 
 // console.log(firstUniqChar("aabb"));
+
+let arr = [3, 3, 3, 3, 5, 5, 5, 2, 2, 7];
+console.log(minSetSize(arr));
