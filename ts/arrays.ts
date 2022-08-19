@@ -38,8 +38,6 @@ export function isPossible(nums: number[]): boolean {
     store[nums[i]] = ++store[nums[i]] || 1;
   }
 
-  console.log(store);
-
   for (let i = 0; i < nums.length; i++) {
     if (store[nums[i]] === 0) continue;
     // debugger;
