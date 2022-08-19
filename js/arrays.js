@@ -15,3 +15,32 @@ export function minSetSize(arr) {
     }
     return result;
 }
+/**659. Split Array into Consecutive Subsequences */
+/**https://leetcode.com/problems/split-array-into-consecutive-subsequences/ */
+export function isPossible(nums) {
+    const store = {};
+    const result = {};
+    for (let i = 0; i < nums.length; i++) {
+        store[nums[i]] = ++store[nums[i]] || 1;
+    }
+    console.log(store);
+    for (let i = 0; i < nums.length; i++) {
+        if (store[nums[i]] === 0)
+            continue;
+        // debugger;
+        store[nums[i]]--;
+        if (result[nums[i] - 1] > 0) {
+            result[nums[i] - 1]--;
+            result[nums[i]] = ++result[nums[i]] || 1;
+        }
+        else if (store[nums[i] + 1] && store[nums[i] + 2]) {
+            store[nums[i] + 1]--;
+            store[nums[i] + 2]--;
+            result[nums[i] + 2] = ++result[nums[i] + 2] || 1;
+        }
+        else {
+            return false;
+        }
+    }
+    return true;
+}
