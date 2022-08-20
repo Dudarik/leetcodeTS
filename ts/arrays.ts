@@ -57,3 +57,32 @@ export function isPossible(nums: number[]): boolean {
 
   return true;
 }
+
+/**871. Minimum Number of Refueling Stops */
+/**https://leetcode.com/problems/minimum-number-of-refueling-stops/ */
+
+export function minRefuelStops(
+  target: number,
+  startFuel: number,
+  stations: number[][]
+): number {
+  const n: number = stations.length;
+  let currFuel: number = startFuel,
+    i: number = 0;
+  let res: number = 0;
+  const pq: Array<number> = []; //priority queue - analog :)
+
+  while (currFuel < target) {
+    while (i < n && currFuel >= stations[i][0]) {
+      pq.push(stations[i][1]);
+      pq.sort((a, b) => a - b);
+      i++;
+    }
+    if (pq.length === 0) return -1;
+
+    currFuel += pq.pop()!;
+
+    res++;
+  }
+  return res;
+}
