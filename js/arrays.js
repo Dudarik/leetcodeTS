@@ -63,3 +63,66 @@ export function minRefuelStops(target, startFuel, stations) {
     }
     return res;
 }
+/**1329. Sort the Matrix Diagonally */
+/**https://leetcode.com/problems/sort-the-matrix-diagonally/ */
+export function diagonalSort(mat) {
+    const diagonals = {};
+    const row = mat[0].length, col = mat.length;
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
+            const dia = i - j;
+            diagonals[dia]
+                ? diagonals[dia].push(mat[col][row])
+                : (diagonals[dia] = [mat[col][row]]);
+        }
+    }
+    Object.keys(diagonals).forEach((k) => diagonals[+k].sort((a, b) => b - a));
+    for (let j = 0; j < col; j++) {
+        for (let i = 0; i < row; i++) {
+            const dia = i - j;
+            mat[col][row] = diagonals[dia].pop();
+        }
+    }
+    return mat;
+    // let n = mat.length,
+    //   m = mat[0].length;
+    // for (let i = 0; i < n; i++) {
+    //   let row = i,
+    //     col = 0;
+    //   const tArr: number[] = [];
+    //   while (row < n && col < m) {
+    //     tArr.push(mat[row][col]);
+    //     row++;
+    //     col++;
+    //   }
+    //   tArr.sort((a, b) => a - b);
+    //   row--;
+    //   col--;
+    //   while (row >= 0 && col >= 0) {
+    //     const t = tArr.pop();
+    //     if (t !== undefined) mat[row][col] = t;
+    //     row--;
+    //     col--;
+    //   }
+    // }
+    // for (let i = 1; i < m; i++) {
+    //   let row = 0,
+    //     col = i;
+    //   const tArr: number[] = [];
+    //   while (row < n && col < m) {
+    //     tArr.push(mat[row][col]);
+    //     row++;
+    //     col++;
+    //   }
+    //   tArr.sort((a, b) => a - b);
+    //   row--;
+    //   col--;
+    //   while (row >= 0 && col >= 0) {
+    //     const t = tArr.pop();
+    //     if (t !== undefined) mat[row][col] = t;
+    //     row--;
+    //     col--;
+    //   }
+    // }
+    // return mat;
+}
