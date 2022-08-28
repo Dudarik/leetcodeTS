@@ -104,7 +104,9 @@ export function diagonalSort(mat: number[][]): number[][] {
     }
   }
 
-  Object.keys(diagonals).forEach((k) => diagonals[+k].sort((a, b) => b - a));
+  Object.keys(diagonals).forEach((key) =>
+    diagonals[+key].sort((a, b) => b - a)
+  );
 
   for (let i = 0; i < col; i++) {
     for (let j = 0; j < row; j++) {
