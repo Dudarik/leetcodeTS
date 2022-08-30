@@ -3,6 +3,7 @@ import {
   isPossible,
   minRefuelStops,
   minSetSize,
+  rotate,
 } from "../ts/arrays";
 
 describe("minSetSize tests", () => {
@@ -90,6 +91,37 @@ describe("diagonalSort tests", () => {
       [14, 23, 25, 44, 58, 15],
       [22, 27, 31, 36, 50, 66],
       [84, 28, 75, 33, 55, 68],
+    ]);
+  });
+});
+
+describe("rotate matrix", () => {
+  test("rotate -> Output: [[7,4,1],[8,5,2],[9,6,3]]", () => {
+    let matrix = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+    ];
+    rotate(matrix);
+    expect(matrix).toStrictEqual([
+      [7, 4, 1],
+      [8, 5, 2],
+      [9, 6, 3],
+    ]);
+  });
+  test("rotate -> Output: [[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]", () => {
+    let matrix = [
+      [5, 1, 9, 11],
+      [2, 4, 8, 10],
+      [13, 3, 6, 7],
+      [15, 14, 12, 16],
+    ];
+    rotate(matrix);
+    expect(matrix).toStrictEqual([
+      [15, 13, 2, 5],
+      [14, 3, 4, 1],
+      [12, 6, 8, 9],
+      [16, 7, 10, 11],
     ]);
   });
 });

@@ -168,3 +168,35 @@ export function diagonalSort(mat: number[][]): number[][] {
 
   // return mat;
 }
+
+/**48. Rotate Image */
+/**https://leetcode.com/problems/rotate-image/ */
+
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+export function rotate(matrix: number[][]): void {
+  const n = matrix.length;
+  const m = n - 1;
+
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < m - i; j++) {
+      [matrix[i][j], matrix[m - j][m - i]] = [
+        matrix[m - j][m - i],
+        matrix[i][j],
+      ];
+    }
+  }
+  matrix.reverse();
+  // const len = matrix.length;
+
+  // for (let i = 0; i < Math.trunc((len + 1) / 2); i++) {
+  //   for (let j = 0; j < Math.trunc(len / 2); j++) {
+  //     const t = matrix[len - 1 - j][i];
+  //     matrix[len - 1 - j][i] = matrix[len - 1 - i][len - j - 1];
+  //     matrix[len - 1 - i][len - j - 1] = matrix[j][len - 1 - i];
+  //     matrix[j][len - 1 - i] = matrix[i][j];
+  //     matrix[i][j] = t;
+  //   }
+  // }
+}

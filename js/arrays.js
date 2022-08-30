@@ -72,15 +72,15 @@ export function diagonalSort(mat) {
         for (let j = 0; j < row; j++) {
             const dia = i - j;
             diagonals[dia]
-                ? diagonals[dia].push(mat[col][row])
-                : (diagonals[dia] = [mat[col][row]]);
+                ? diagonals[dia].push(mat[i][j])
+                : (diagonals[dia] = [mat[i][j]]);
         }
     }
-    Object.keys(diagonals).forEach((k) => diagonals[+k].sort((a, b) => b - a));
-    for (let j = 0; j < col; j++) {
-        for (let i = 0; i < row; i++) {
+    Object.keys(diagonals).forEach((key) => diagonals[+key].sort((a, b) => b - a));
+    for (let i = 0; i < col; i++) {
+        for (let j = 0; j < row; j++) {
             const dia = i - j;
-            mat[col][row] = diagonals[dia].pop();
+            mat[i][j] = diagonals[dia].pop();
         }
     }
     return mat;
@@ -125,4 +125,32 @@ export function diagonalSort(mat) {
     //   }
     // }
     // return mat;
+}
+/**48. Rotate Image */
+/**https://leetcode.com/problems/rotate-image/ */
+/**
+ Do not return anything, modify matrix in-place instead.
+ */
+export function rotate(matrix) {
+    const n = matrix.length;
+    const m = n - 1;
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < m - i; j++) {
+            [matrix[i][j], matrix[m - j][m - i]] = [
+                matrix[m - j][m - i],
+                matrix[i][j],
+            ];
+        }
+    }
+    matrix.reverse();
+    // const len = matrix.length;
+    // for (let i = 0; i < Math.trunc((len + 1) / 2); i++) {
+    //   for (let j = 0; j < Math.trunc(len / 2); j++) {
+    //     const t = matrix[len - 1 - j][i];
+    //     matrix[len - 1 - j][i] = matrix[len - 1 - i][len - j - 1];
+    //     matrix[len - 1 - i][len - j - 1] = matrix[j][len - 1 - i];
+    //     matrix[j][len - 1 - i] = matrix[i][j];
+    //     matrix[i][j] = t;
+    //   }
+    // }
 }
